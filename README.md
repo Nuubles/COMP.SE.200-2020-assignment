@@ -1,3 +1,6 @@
+[![Coverage Status](https://coveralls.io/repos/github/Nuubles/COMP.SE.200-2020-assignment/badge.svg?branch=master)](https://coveralls.io/github/Nuubles/COMP.SE.200-2020-assignment?branch=master)
+[![Build Status](https://travis-ci.com/Nuubles/COMP.SE.200-2020-assignment.svg?branch=master)](https://travis-ci.com/Nuubles/COMP.SE.200-2020-assignment)
+
 # Student template
 
 ## Purpose of this repository
