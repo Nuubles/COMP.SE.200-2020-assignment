@@ -4,10 +4,9 @@ node_js:
 
 script:
   - npm test
-  - npm run test:cover
 
 after_success:
-  - npm run test:coveralls
+  - npm run test:cover
 
 notifications:
   email: false
