@@ -1,0 +1,45 @@
+math
+- add
+- ceil
+- clamp
+- divide
+
+array
+- at
+- castarray
+- chunk
+- compact
+- difference
+- drop
+- keys
+- map
+- reduce
+- slice
+
+string
+- camelcase
+- capitalize
+- endswith
+- upperfirst
+- words
+
+object
+- countby
+
+misc
+- defaultto
+- defaulttoany
+- get
+- memoize
+
+compare
+- eq
+- every
+- filter
+- is*
+
+conversion
+- tofinite
+- tointeger
+- tonumber
+- tostring
