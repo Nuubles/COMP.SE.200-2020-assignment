@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc --reporter=html --reporter=text mocha --require esm",
-    "test:cover": "istanbul cover ./node_modules/mocha/bin/_mocha --require ./node_modules/esm/esm.js --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+	"test:cover": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "",
   "license": "MIT",
