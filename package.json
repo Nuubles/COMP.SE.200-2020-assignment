@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require esm",
-    "test:cover": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+	"test": "mocha --require esm",
+	"testi": "istanbul cover _mocha",
+    "test:cover": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly --require ./node_modules/esm/esm.js -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "author": "",
   "license": "MIT",
