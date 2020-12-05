@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	"test": "nyc --reporter=html --reporter=text mocha --require esm",
+    "test": "nyc --reporter=html --reporter=text mocha --require esm",
     "test:cover": "istanbul cover ./node_modules/mocha/bin/_mocha --require ./node_modules/esm/esm.js --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "author": "",
@@ -17,6 +17,7 @@
     "mocha": "^8.2.1",
     "mocha-lcov-reporter": "^1.3.0",
     "mochawesome": "^6.2.1",
+    "nyc": "^15.1.0",
     "safe-regex": "^2.1.1"
   }
 }
