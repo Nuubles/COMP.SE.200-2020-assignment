@@ -2,7 +2,7 @@ import toFinite from '../src/toFinite.js';
 import toInteger from '../src/toInteger.js';
 import toNumber from '../src/toNumber.js';
 import toString from '../src/toString.js';
-import { strictEqual, deepStrictEqual } from 'assert';
+import { strictEqual, equal } from 'assert';
 import { describe, it } from 'mocha';
 
 describe("Conversion tests", function() {
@@ -19,20 +19,20 @@ describe("Conversion tests", function() {
         it("-Infinity => -1.7976931348623157e+308", () => {
             strictEqual(toFinite(-Infinity), -1.7976931348623157e+308);
         });
-        it("undefined => 0", () => {
-            strictEqual(toFinite(undefined), 0);
+        it("undefined => falsy", () => {
+            equal(!toFinite(undefined), true);
         });
-        it("[1,2,3] => 0", () => {
-            strictEqual(toFinite([1,2,3]), 0);
+        it("[1,2,3] => falsy", () => {
+            equal(!toFinite([1,2,3]), true);
         });
-        it("[] => 0", () => {
-            strictEqual(toFinite([]), 0);
+        it("[] => falsy", () => {
+            equal(!toFinite([]), true);
         });
         it("'1.6' => 1.6", () => {
             strictEqual(toFinite("1.6"), 1.6);
         });
-        it("NaN => 0", () => {
-            strictEqual(toFinite(NaN), 0);
+        it("NaN => falsy", () => {
+            equal(!toFinite(NaN), true);
         });
     });
     describe("#toInteger()", function() {
@@ -42,8 +42,8 @@ describe("Conversion tests", function() {
         it("1.6 => 1", () => {
             strictEqual(toInteger(1.6), 1);
         });
-        it("undefined => 0", () => {
-            strictEqual(toInteger(undefined), 0);
+        it("undefined => falsy", () => {
+            equal(!toInteger(undefined), true);
         });
         it("Infinity => 1.7976931348623157e+308", () => {
             strictEqual(toInteger(Infinity), 1.7976931348623157e+308);
@@ -51,17 +51,17 @@ describe("Conversion tests", function() {
         it("-Infinity => -1.7976931348623157e+308", () => {
             strictEqual(toInteger(-Infinity), -1.7976931348623157e+308);
         });
-        it("[1,2,3] => 0", () => {
-            strictEqual(toInteger([1,2,3]), 0);
+        it("[1,2,3] => falsy", () => {
+            equal(!toInteger([1,2,3]), true);
         });
-        it("[] => 0", () => {
-            strictEqual(toInteger([]), 0);
+        it("[] => falsy", () => {
+            equal(!toInteger([]), true);
         });
         it("'15' => 15", () => {
             strictEqual(toInteger("15"), 15);
         });
-        it("NaN => 0", () => {
-            strictEqual(toInteger(NaN), 0);
+        it("NaN => falsy", () => {
+            equal(!toInteger(NaN), true);
         });
     });
     describe("#toNumber()", function() {
@@ -71,17 +71,17 @@ describe("Conversion tests", function() {
         it("1.6 => 1.6", () => {
             strictEqual(toNumber(1.6), 1.6);
         });
-        it("undefined => NaN", () => {
-            strictEqual(toNumber(undefined), NaN);
+        it("undefined => falsy", () => {
+            equal(!toNumber(undefined), true);
         });
-        it("NaN => NaN", () => {
-            strictEqual(toNumber(NaN), NaN);
+        it("NaN => falsy", () => {
+            equal(!toNumber(NaN), true);
         });
-        it("'' => 0", () => {
-            strictEqual(toNumber(""), 0);
+        it("'' => falsy", () => {
+            equal(!toNumber(""), true);
         });
-        it("'text' => NaN", () => {
-            strictEqual(toNumber("text"), NaN);
+        it("'text' => falsy", () => {
+            equal(!toNumber("text"), true);
         });
         it("'5 ' => 5", () => {
             strictEqual(toNumber("5 "), 5);
@@ -89,8 +89,8 @@ describe("Conversion tests", function() {
         it("'0x1234' => 4660", () => {
             strictEqual(toNumber("0x1234"), 4660);
         });
-        it("'0x123FG' => NaN", () => {
-            strictEqual(toNumber("0x123FG"), NaN);
+        it("'0x123FG' => falsy", () => {
+            equal(!toNumber("0x123FG"), true);
         });
         it("'0b111' => 7", () => {
             strictEqual(toNumber("0b111"), 7);
@@ -104,11 +104,11 @@ describe("Conversion tests", function() {
         it("-Infinity => -Infinity", () => {
             strictEqual(toNumber(-Infinity), -Infinity);
         });
-        it("[1,2,3] => NaN", () => {
-            strictEqual(toNumber([1,2,3]), NaN);
+        it("[1,2,3] => falsy", () => {
+            equal(!toNumber([1,2,3]), true);
         });
-        it("[] => 0", () => {
-            strictEqual(toNumber([]), 0);
+        it("[] => falsy", () => {
+            equal(!toNumber([]), true);
         });
     });
     describe("#toString()", function() {
@@ -133,7 +133,7 @@ describe("Conversion tests", function() {
         it("'🙈' => '🙈'", () => {
             strictEqual(toString("🙈"), "🙈");
         });
-        it("['0', 1, '2'] => '012'", () => {
+        it("['0', 1, '2'] => '0,1,2'", () => {
             strictEqual(toString(["0", 1, "2"]), "0,1,2");
         });
         it("Infinity => 'Infinity'", () => {
