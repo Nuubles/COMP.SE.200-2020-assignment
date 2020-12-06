@@ -72,7 +72,9 @@ describe("String tests", function() {
         it("('AA 🙈 AA9', undefined) => ['AA', '🙈', 'AA9']", () => {
             deepStrictEqual(words("AA 🙈 AA9", undefined), ["AA", "🙈", "AA9"]);
         });
-        // omit test 5: is same as test 3
+        it("('A9 _ AA', undefined) => ['A9', 'AA']", () => {
+            deepStrictEqual(words("A9 _ AA", undefined), ["A9", "AA"]);
+        });
         // omit test 6 and 7 for same reason as 1
         it("('', /[A-Z]+/g) => []", () => {
             deepStrictEqual(words("", /[A-Z]+/g), []);
