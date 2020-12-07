@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc --reporter=html --reporter=text mocha --require esm",
-	"test:cover": "nyc report --reporter=text-lcov | coveralls"
+    "test:cover": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "",
   "license": "MIT",
@@ -21,6 +21,6 @@
     "safe-regex": "^2.1.1"
   },
   "nyc": {
-	  "exclude": "src/.internal/**/*.js"
+    "exclude": "src/.internal/**/*.js"
   }
 }
